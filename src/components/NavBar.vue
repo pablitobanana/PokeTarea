@@ -11,8 +11,8 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" href="#" v-html="tarjeta"></a>
-        <a class="nav-link active " aria-current="page" href="#">Home</a>
-        <a class="nav-link active" href="#">Habilidades</a>
+        <router-link class="nav-link active" to="/home">Home</router-link>
+        <router-link class="nav-link active" to="/about">About</router-link>
         <a class="nav-link active" href="#">Cerrar Sesión</a>
         <button type="button" class="btn btn-dark" >Modo Oscuro</button>
       </div>
