@@ -1,5 +1,5 @@
 <template>
-  <div id="navBar">
+  <div id="navBar" class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <div class="navbar-brand">
@@ -12,7 +12,7 @@
       <div class="navbar-nav">
         <a class="nav-link active" href="#" v-html="tarjeta"></a>
         <router-link class="nav-link active" to="/home">Home</router-link>
-        <router-link class="nav-link active" to="/about">About</router-link>
+        <router-link class="nav-link active" to="/about">Habilidades</router-link>
         <a class="nav-link active" href="#">Cerrar Sesión</a>
         <button type="button" class="btn btn-dark" >Modo Oscuro</button>
       </div>
