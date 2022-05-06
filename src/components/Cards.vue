@@ -1,10 +1,10 @@
 <template>
   <div id="cards" class=" ">
-    <div class="container-xxl mb-3">
+    <div class="container-xl mb-3">
       <h1>Selecciona Pokemos</h1>
       <div class="row row-cols-1 row-cols-md-3 g-3">
         <div class="col-md-4" v-for="(pokemon,i) in pokemons" :key="i">
-          <div class="card mb-3 mt-3 m-sm-auto ms-md-auto h-100" >
+          <div class="card p-1 mb-3 mt-3 m-sm-auto ms-md-auto h-100" >
   <div class="row g-0">
     <div class="col-md-12 col-lg-4">
       <img :src="pokemon.sprites.other.dream_world.front_default" class="img-fluid rounded-start" alt="...">
@@ -13,7 +13,7 @@
       <div class="card-body">
         <h3 class="card-title text-capitalize">{{pokemon.name}}</h3>
         <p class="card-text">{{pokeDet[i]}}</p>
-        <p class="card-text"><small class="text-muted text-uppercase">{{pokemon.types[0].type.name}}</small></p>
+        <p class="card-text"><small class="text-light bg-primary text-uppercase border p-2 rounded-3 ">{{pokemon.types[0].type.name}}</small></p>
       </div>
     </div>
   </div>
