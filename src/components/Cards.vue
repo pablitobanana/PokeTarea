@@ -1,19 +1,20 @@
 <template>
-  <div id="cards" class=" ">
+  <div id="cards" class="bg-cards">
     <div class="container-xl mb-3">
-      <h1>Selecciona Pokemos</h1>
+      <h1 class="text-light">Selecciona Pokemons</h1>
       <div class="row row-cols-1 row-cols-md-3 g-3">
         <div class="col-md-4" v-for="(pokemon,i) in pokemons" :key="i">
-          <div class="card p-1 mb-3 mt-3 m-sm-auto ms-md-auto h-100" >
+          <div class="card p-1 mb-3 mt-3 m-sm-auto ms-md-auto h-100 bg-dark boder border-info" >
   <div class="row g-0">
     <div class="col-md-12 col-lg-4">
-      <img :src="pokemon.sprites.other.dream_world.front_default" class="img-fluid rounded-start" alt="...">
+      <img :src="pokemon.sprites.other.dream_world.front_default" class="img-fluid rounded-start rounded-4 bg-dark" alt="...">
+        <p class="card-text mt-3"><small class="text-dark bg-info text-uppercase p-2 rounded-pill badge ">{{pokemon.types[0].type.name}}</small></p>
     </div>
     <div class="col-md-12 col-lg-8">
-      <div class="card-body">
+      <div class="card-body text-white">
         <h3 class="card-title text-capitalize">{{pokemon.name}}</h3>
         <p class="card-text">{{pokeDet[i]}}</p>
-        <p class="card-text"><small class="text-light bg-primary text-uppercase border p-2 rounded-3 ">{{pokemon.types[0].type.name}}</small></p>
+        <button type="button" class="btn btn-primary">Agregar</button>
       </div>
     </div>
   </div>
@@ -49,5 +50,7 @@ export default{
 </script>
 
 <style scoped>
-
+.bg-cards{
+  background: #000000;
+}
 </style>

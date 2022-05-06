@@ -1,6 +1,6 @@
 <template>
   <div id="navBar" class="sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-nv">
   <div class="container-fluid">
     <div class="navbar-brand">
       <img src="@/assets/ddew4m7-c69a2c41-518f-48ca-ba35-8ab1895464e0.png" alt="" width="200" height="50" >
@@ -14,7 +14,6 @@
         <router-link class="nav-link active" to="/home">Home</router-link>
         <router-link class="nav-link active" to="/about">Habilidades</router-link>
         <a class="nav-link active" href="#">Cerrar Sesión</a>
-        <button type="button" class="btn btn-dark" >Modo Oscuro</button>
       </div>
     </div>
   </div>
@@ -34,5 +33,7 @@ export default{
 </script>
 
 <style scoped>
-
+.bg-nv{
+  background: #1B73AE;
+}
 </style>
