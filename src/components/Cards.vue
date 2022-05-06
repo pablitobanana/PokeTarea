@@ -32,7 +32,7 @@ export default{
     onMounted( async () =>{
       for (let i = 1; i <= 65; i++) {
         const res = await fetch("https://pokeapi.co/api/v2/pokemon/"+i)
-        pokemons.value[i-1] = await res.json()
+        pokemons.value.push(await res.json());
       }
     })
     return{pokemons}
