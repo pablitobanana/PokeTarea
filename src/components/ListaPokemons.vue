@@ -1,40 +1,70 @@
 <template>
   <div id="listaPokemons">
-<<<<<<< HEAD
-    <button class="btn btn-primary  rounded-end rounded-circle" id="poke-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-arrow-bar-left " id="btn-poke-list"></i></button>
+    <button class="btn btn-primary  rounded-end rounded-circle" id="btn-poke-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-arrow-bar-left" id="icon-btn-poke-list"></i></button>
 
-=======
-    <button class="btn btn-primary" id="poke-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-arrow-bar-left"></i></button>
->>>>>>> 43bbfd22dded4cd0adcb3f8fc23b6255832c4dca
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
-    <h5 id="offcanvasRightLabel">PokeList</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <h1 id="offcanvasRightLabel" class="text-light">PokeList</h1>
+    <button type="button" class="btn-close bg-light" id="tag-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    ...
+    <div class="container-fluid">
+      <div class="row text-light bg-dark mb-4">
+        <div class="col">
+          Nombre
+        </div>
+        <div class="col">
+          Habilidad
+        </div>
+        <div class="col">
+          Acción
+        </div>
+      </div>
+      <div class="row text-light" v-for="(pokemon,i) in pokemons" :key="i">
+        <div class="col-4">
+          <p class="text-capitalize">{{ pokemon.name }}</p> 
+        </div>
+        <div class="col-4">
+          <p class="text-capitalize">{{ pokemon.abilities[1].ability.name }}</p> 
+        </div>
+        <div class="col-4">
+          <p>
+            <button class="text-capitalize btn btn-dark">quitar</button>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
   </div>
 </template>
 
 <script>
+import {ref} from 'vue'
 export default{
  name: 'Lista',
+  props:{
+    pokeprops: { 
+      type: Array,
+      default: () => [] },
+  }, 
+  setup(props){
+    const pokemons = ref( props.pokeprops );
+    return {pokemons}
+  }
 };
 </script>
 
 <style scoped>
-#poke-list{
+#btn-poke-list{
   position: fixed;
   right: 0;
-<<<<<<< HEAD
   top: 19em;
 }
-#btn-poke-list{
+#icon-btn-poke-list{
 font-size: 1.65em;
-=======
-  top: 20em;
->>>>>>> 43bbfd22dded4cd0adcb3f8fc23b6255832c4dca
+}
+#offcanvasRight{
+  background: #000;
 }
 </style>
