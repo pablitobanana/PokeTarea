@@ -1,7 +1,11 @@
 <template>
   <div id="listaPokemons">
+<<<<<<< HEAD
     <button class="btn btn-primary  rounded-end rounded-circle" id="poke-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-arrow-bar-left " id="btn-poke-list"></i></button>
 
+=======
+    <button class="btn btn-primary" id="poke-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-arrow-bar-left"></i></button>
+>>>>>>> 43bbfd22dded4cd0adcb3f8fc23b6255832c4dca
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h5 id="offcanvasRightLabel">PokeList</h5>
@@ -24,9 +28,13 @@ export default{
 #poke-list{
   position: fixed;
   right: 0;
+<<<<<<< HEAD
   top: 19em;
 }
 #btn-poke-list{
 font-size: 1.65em;
+=======
+  top: 20em;
+>>>>>>> 43bbfd22dded4cd0adcb3f8fc23b6255832c4dca
 }
 </style>
