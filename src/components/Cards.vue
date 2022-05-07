@@ -14,7 +14,7 @@
       <div class="card-body text-white">
         <h3 class="card-title text-capitalize">{{pokemon.name}}</h3>
         <p class="card-text">{{pokeDet[i]}}</p>
-        <button type="button" class="btn btn-primary" >Agregar</button>
+        <button class="btn btn-primary" @click="agregar(pokemon)">Agregar</button>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <ListaPokemons :hola="adios"/>
+    <ListaPokemons :pokeprops="pokeprops"/>
   </div>
 </template>
 
@@ -37,7 +37,8 @@ export default{
   setup(){
     const pokemons = ref([]);
     const pokeDet = ref([]);
-    const adios = [1,2,3,4,5];
+    const pokeprops = ref([]);
+
     onMounted(async () => {
       for (let i = 1; i <= 65; i++) {
       const res = await fetch("https://pokeapi.co/api/v2/pokemon-species/"+i)
@@ -52,7 +53,12 @@ export default{
         pokemons.value.push(await res.json());
       }
     })
-    return{pokemons,pokeDet,adios}
+    
+    const agregar = (poke) =>{
+      pokeprops.value.push(poke);
+      console.log(pokeprops.value);
+    }
+    return{pokemons,pokeDet,pokeprops,agregar}
   } 
 };
 </script>

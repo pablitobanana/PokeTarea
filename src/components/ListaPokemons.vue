@@ -9,7 +9,7 @@
   </div>
   <div class="offcanvas-body">
     <div class="container-fluid">
-      <div class="row bg-dark text-light">
+      <div class="row text-light bg-dark mb-4">
         <div class="col">
           Nombre
         </div>
@@ -20,8 +20,18 @@
           Acción
         </div>
       </div>
-      <div class="row text-light" v-for="(h,i) in hola" :key="i">
-        <p>{{h}}</p>
+      <div class="row text-light" v-for="(pokemon,i) in pokemons" :key="i">
+        <div class="col-4">
+          <p class="text-capitalize">{{ pokemon.name }}</p> 
+        </div>
+        <div class="col-4">
+          <p class="text-capitalize">{{ pokemon.abilities[1].ability.name }}</p> 
+        </div>
+        <div class="col-4">
+          <p>
+            <button class="text-capitalize btn btn-dark">quitar</button>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -30,11 +40,18 @@
 </template>
 
 <script>
+import {ref} from 'vue'
 export default{
  name: 'Lista',
   props:{
-    hola:[],
-  },
+    pokeprops: { 
+      type: Array,
+      default: () => [] },
+  }, 
+  setup(props){
+    const pokemons = ref( props.pokeprops );
+    return {pokemons}
+  }
 };
 </script>
 
