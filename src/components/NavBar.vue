@@ -13,7 +13,9 @@
         <a class="nav-link active" href="#" v-html="tarjeta"></a>
         <router-link class="nav-link active" to="/home">Home</router-link>
         <router-link class="nav-link active" to="/about">Habilidades</router-link>
-        <a class="nav-link active" href="#">Cerrar Sesión</a>
+<form class="d-flex">
+        <button type="button" class="btn btn-dark" >Cerrar Sesión</button>
+      </form>
       </div>
     </div>
   </div>
