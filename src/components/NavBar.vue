@@ -34,6 +34,6 @@ export default{
 
 <style scoped>
 .bg-nv{
-  background: #1B73AE;
+  background: #0E68A4;
 }
 </style>
