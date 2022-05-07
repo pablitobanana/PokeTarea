@@ -1,5 +1,5 @@
 <template>
-  <div id="cards" class="bg-cards">
+  <div id="cards" class="">
     <div class="container-xl mb-3">
       <h1 class="text-light">Selecciona Pokemons</h1>
       <div class="row row-cols-1 row-cols-md-3 g-3">
@@ -50,7 +50,5 @@ export default{
 </script>
 
 <style scoped>
-.bg-cards{
-  background: #000000;
-}
+
 </style>
