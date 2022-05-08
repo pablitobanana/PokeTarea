@@ -1,5 +1,5 @@
 <template>
-  <div id="cards" class="">
+  <div id="cards" class="pb-4">
     <div class="container-xl">
       <h1 class="text-light m-3">Selecciona Pokemons</h1>
       <div class="row row-cols-1 row-cols-md-3 g-3">
@@ -12,7 +12,7 @@
     </div>
     <div class="col-md-12 col-lg-8">
       <div class="card-body text-white">
-        <h3 class="card-title text-capitalize">{{pokemon.name}}</h3>
+        <h3 class="card-title text-capitalize">{{pokemon.name}}<small> #{{pokemon.id.toString().padStart(3,0)}}</small></h3>
         <p class="card-text">{{pokeDet[i]}}</p>
         <button class="btn btn-primary" @click="agregar(pokemon)">Agregar</button>
       </div>
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <ListaPokemons :pokeprops="pokeprops"/>
+    <ListaPokemons :pokeprops="pokeprops" @borrar="borrarPokemon" @borrarl="borrarLista"/>
   </div>
 </template>
 
@@ -40,7 +40,7 @@ export default{
     const pokeprops = ref([]);
 
     onMounted(async () => {
-      for (let i = 1; i <= 65; i++) {
+      for (let i = 1; i <= 26; i++) {
       const res = await fetch("https://pokeapi.co/api/v2/pokemon-species/"+i)
       const respuesta = await res.json() 
       pokeDet.value.push(respuesta.flavor_text_entries[34].flavor_text)
@@ -48,7 +48,7 @@ export default{
   })
    
     onMounted( async () =>{
-      for (let i = 1; i <= 65; i++) {
+      for (let i = 1; i <= 26; i++) {
         const res = await fetch("https://pokeapi.co/api/v2/pokemon/"+i)
         pokemons.value.push(await res.json());
       }
@@ -58,7 +58,13 @@ export default{
       pokeprops.value.push(poke);
       console.log(pokeprops.value);
     }
-    return{pokemons,pokeDet,pokeprops,agregar}
+    const borrarPokemon = (num) =>{
+      pokeprops.value.splice(num,1);
+    }
+    const borrarLista = () =>{
+      pokeprops.value.splice(0);
+    }
+    return{pokemons,pokeDet,pokeprops,agregar,borrarPokemon,borrarLista}
   } 
 };
 </script>

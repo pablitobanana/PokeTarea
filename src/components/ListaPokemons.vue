@@ -1,6 +1,11 @@
 <template>
   <div id="listaPokemons">
-    <button class="btn btn-primary  rounded-end rounded-circle" id="btn-poke-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-arrow-bar-left" id="icon-btn-poke-list"></i></button>
+    <button class="btn btn-primary  rounded-end rounded-circle" id="btn-poke-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-arrow-bar-left" id="icon-btn-poke-list">
+    <span class="position-absolute top-0 start-90 translate-middle badge rounded-end rounded-circle bg-danger fs-6">
+      {{pokemons.length}}
+  </span>
+      </i>
+    </button>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
@@ -10,29 +15,36 @@
   <div class="offcanvas-body">
     <div class="container-fluid">
       <div class="row text-light bg-dark mb-4">
-        <div class="col">
+        <div class="col-1">
+          #
+        </div>
+        <div class="col-4">
           Nombre
         </div>
-        <div class="col">
+        <div class="col-4">
           Habilidad
         </div>
-        <div class="col">
+        <div class="col-3">
           Acción
         </div>
       </div>
       <div class="row text-light" v-for="(pokemon,i) in pokemons" :key="i">
+        <div class="col-1">
+          <p>{{i+1}}</p>
+        </div>
         <div class="col-4">
           <p class="text-capitalize">{{ pokemon.name }}</p> 
         </div>
         <div class="col-4">
           <p class="text-capitalize">{{ pokemon.abilities[1].ability.name }}</p> 
         </div>
-        <div class="col-4">
+        <div class="col-3">
           <p>
-            <button class="text-capitalize btn btn-dark">quitar</button>
+            <button class="text-capitalize btn btn-primary" @click="borrarOne(i)">quitar</button>
           </p>
         </div>
       </div>
+      <button class="text-uppercase btn btn-primary" @click="borrarAll">Borrar lista</button> 
     </div>
   </div>
 </div>
@@ -43,14 +55,22 @@
 import {ref} from 'vue'
 export default{
  name: 'Lista',
+  emits: ["borrar", "borrarl"],
   props:{
     pokeprops: { 
       type: Array,
       default: () => [] },
   }, 
-  setup(props){
+  setup(props, {emit}){
     const pokemons = ref( props.pokeprops );
-    return {pokemons}
+
+    const borrarAll = () => {
+    emit("borrarl")
+    }
+    const borrarOne = (num) => {
+    emit("borrar",num)
+    }
+    return {pokemons,borrarOne,borrarAll}
   }
 };
 </script>
