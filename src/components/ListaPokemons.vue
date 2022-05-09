@@ -2,7 +2,7 @@
   <div id="listaPokemons">
     <button class="btn btn-primary  rounded-end rounded-circle" id="btn-poke-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-arrow-bar-left" id="icon-btn-poke-list">
     <span class="position-absolute top-0 start-90 translate-middle badge rounded-end rounded-circle bg-danger fs-6">
-      {{pokemons.length}}
+      <small>{{pokemons.length}}</small>
   </span>
       </i>
     </button>

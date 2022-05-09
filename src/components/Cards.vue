@@ -12,7 +12,7 @@
     </div>
     <div class="col-md-12 col-lg-8">
       <div class="card-body text-white">
-        <h3 class="card-title text-capitalize">{{pokemon.name}}<small> #{{pokemon.id.toString().padStart(3,0)}}</small></h3>
+        <h3 class="card-title text-capitalize">{{pokemon.name}}<small class="fs-6"> #{{pokemon.id.toString().padStart(3,0)}}</small></h3>
         <p class="card-text">{{pokeDet[i]}}</p>
         <button class="btn btn-primary" @click="agregar(pokemon)">Agregar</button>
       </div>
