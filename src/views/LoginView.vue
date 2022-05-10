@@ -19,7 +19,7 @@ export default{
     const mostrar = ref(true);
 
     const change = () => {
-      if(mostrar.value == true){
+      if(mostrar.value === true){
         mostrar.value = false;
       }else{
         mostrar.value = true;

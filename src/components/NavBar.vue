@@ -32,8 +32,18 @@ export default{
 };
 </script>
 
+
 <style scoped>
 .bg-nv{
   background: #0E68A4;
+}
+
+nav {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
 </style>
