@@ -1,7 +1,7 @@
 <template>
   <div id="form-check-in" class="container ">
     <form class="row g-3 border mt-5 col-md-8 col-lg-5 m-auto p-4">
-      <h1>Check in</h1>
+      <h2>Check in</h2>
   <div class="col-md-12">
     <input type="text" class="form-control" id="inputnombreUsuario" placeholder="Nombre de Usuario">
   </div>
