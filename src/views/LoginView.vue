@@ -1,5 +1,5 @@
 <template>
-  <div id="login">
+  <div id="login" class="container-fluid">
     <FormLogin  v-if="mostrar" @cambio="change"/>
     <FormCheckIn v-if="!mostrar" @cambio="change" />
   </div>
@@ -31,5 +31,9 @@ export default{
 </script>
 
 <style scoped>
-
+#login{
+  background: #000;
+  position: fixed;
+  height: 100%;
+}
 </style>

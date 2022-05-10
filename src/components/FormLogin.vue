@@ -1,7 +1,7 @@
 <template>
-  <div id="form-login" class="container-fluid">
+  <div id="form-login" class="container">
   <div class="col">
-    <form class="col-lg-4 col-md-8  m-auto my-5 border p-4">
+    <form class="col-lg-4 col-md-8  m-auto my-5 border p-4 bg-light">
       <h2>login</h2>
   <div class="mb-4">
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correro">
