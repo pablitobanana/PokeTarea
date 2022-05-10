@@ -12,7 +12,7 @@
       <div class="navbar-nav">
         <a class="nav-link active" href="#" v-html="tarjeta"></a>
         <router-link class="nav-link active" to="/home">Home</router-link>
-        <router-link class="nav-link active" to="/about">Habilidades</router-link>
+        <router-link class="nav-link active" to="/home">Habilidades</router-link>
         <button type="button" class="btn btn-dark" >Cerrar Sesión</button>
       </div>
     </div>
