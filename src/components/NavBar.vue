@@ -13,7 +13,7 @@
         <a class="nav-link active" href="#" v-html="tarjeta"></a>
         <router-link class="nav-link active" to="/home">Home</router-link>
         <router-link class="nav-link active" to="/home">Habilidades</router-link>
-        <button type="button" class="btn btn-dark" >Cerrar Sesión</button>
+          <button type="button" class="btn btn-dark" @click="cerrarS" >Cerrar Sesión</button>
       </div>
     </div>
   </div>
@@ -22,12 +22,18 @@
 </template>
 
 <script>
+import  firebaseApp from '../api/firebase.js';
+import {getAuth , signOut} from 'firebase/auth';
+import router from '../router/index.js'
 export default{
   name: 'NavBar',
   setup(){
-    const nombre = 'Marco'
-    const tarjeta = ` <i class="bi bi-person-circle"></i> <i>Bienvenido ${nombre}</i>`;
-          return{tarjeta}
+    const auth = getAuth(firebaseApp);
+    const cerrarS = () =>{
+      signOut(auth).then(()=>router.push("/"))
+    }
+    const tarjeta = ` <i class="bi bi-person-circle"></i> <i>Bienvenido</i>`;
+          return{tarjeta,cerrarS}
   }
 };
 </script>
