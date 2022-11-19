@@ -1,5 +1,8 @@
 <template>
   <div id="form-login" class="container">
+<div class="alert alert-danger" role="alert">
+  A simple danger alert—check it out!
+</div>
   <div class="col">
     <form class="col-lg-5 col-md-8 m-auto my-5 border p-4 bg-light">
       <h2>login</h2>
