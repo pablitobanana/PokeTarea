@@ -4,7 +4,7 @@
       <h1 class="text-light m-3">Selecciona Pokemons</h1>
       <div class="row row-cols-1 row-cols-md-3 g-3">
         <div class="col-md-4" v-for="(pokemon,i) in pokemons" :key="i">
-          <div class="card p-1 mb-3 mt-3 m-sm-auto ms-md-auto h-100 bg-dark boder border-info" >
+          <div class="card p-1 mb-3 mt-3 m-sm-auto ms-md-auto h-100 bg-dark boder border-info">
   <div class="row g-0">
     <div class="col-md-12 col-lg-4">
       <img :src="pokemon.sprites.other.dream_world.front_default" class="img-fluid rounded-start rounded-4 bg-dark" alt="...">
@@ -56,7 +56,6 @@ export default{
     
     const agregar = (poke) =>{
       pokeprops.value.push(poke);
-      console.log(pokeprops.value);
     }
     const borrarPokemon = (num) =>{
       pokeprops.value.splice(num,1);

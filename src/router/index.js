@@ -6,7 +6,6 @@ const routes = [
   {
    path:'/:pathMatch(.*)*',
     redirect: '/',
-    meta:{protect:true},
   },
   {
     path: '/',
@@ -36,7 +35,6 @@ const router = createRouter({
 router.beforeEach((to,from,next) =>{
     const auth = getAuth(firebaseApp);
     let consultaUsuario = auth.currentUser;
-  console.log(consultaUsuario);
   if(to.meta.protect && !consultaUsuario){
     next("/");
   }else if(!to.meta.protect && consultaUsuario ){

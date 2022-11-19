@@ -3,7 +3,10 @@ node_modules
 /dist
 src/api
 src/api/*
-
+.firebase/
+.firebaserc
+firebase.json
+yarn.lock
 # local env files
 .env.local
 .env.*.local
