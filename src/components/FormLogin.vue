@@ -1,8 +1,10 @@
 <template>
   <div id="form-login" class="container">
-<div class="alert alert-danger" role="alert">
-  A simple danger alert—check it out!
-</div>
+    <div class="container fixed-top">
+      <div class="alert alert-danger" :hidden="alertState" id="alerta-error-inicio" role="alert">
+        Informacion incorrecta, vuelva a intentarlo
+      </div>
+    </div>
   <div class="col">
     <form class="col-lg-5 col-md-8 m-auto my-5 border p-4 bg-light">
       <h2>login</h2>
@@ -48,7 +50,7 @@ export default{
     }
 
     const Disabled = computed(() =>{
-      if(usuario.correo.value == "" || usuario.contraseña.value == "")
+      if(( usuario.correo.value == "" || ( usuario.contraseña.value == "" || usuario.contraseña.value.length <= 5 )) )
         return true
       else
         return false
@@ -58,15 +60,21 @@ export default{
       e.preventDefault();
       await signInWithEmailAndPassword(auth,usuario.correo.value,usuario.contraseña.value).then(()=>{
       router.push("/home")
-      })
+      },esconderAlerta())
     }
 
     
     const iniciarG = () =>{
       signInWithPopup(auth, googleAutenticacionI).then(() => router.push("/home"))
     }
+
+    const alertState = ref(true)
+    const esconderAlerta = () => {
+      alertState.value = false
+      setTimeout(()=>alertState.value = true,8000)
+    }
  
-    return{cambioForm, usuario, Disabled,iniciar, iniciarG}
+    return{cambioForm, usuario, Disabled,iniciar, iniciarG,alertState}
   },
 };
 </script>
