@@ -1,22 +1,22 @@
 <template>
   <div id="form-login" class="container">
   <div class="col">
-    <form @submit.prevent="iniciar" class="col-lg-4 col-md-8  m-auto my-5 border p-4 bg-light">
+    <form class="col-lg-5 col-md-8 m-auto my-5 border p-4 bg-light">
       <h2>login</h2>
-  <div class="mb-4">
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correro" v-model="usuario.correo.value">
+  <div class="mb-3">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo" v-model="usuario.correo.value">
   </div>
   <div class="mb-3">
     <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="on" placeholder="Contraseña" v-model="usuario.contraseña.value">
   </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary" @click="iniciar" :disabled="Disabled" >Enviar</button>
+  <div class="row mt-4 justify-content-center">
+    <button type="submit" class="btn btn-primary col-sm-5 col-lg-5 col-xl-4" @click="iniciar" :disabled="Disabled" >Ingresar</button>
   </div>
   <div class="row mt-4 justify-content-center">
-    <a @click="iniciarG" class="btn btn-dark col-2 "><i class="bi bi-google "></i></a>
+    <button type="button" @click="iniciarG" class="btn btn-dark col-xl-2 col-lg-3 col-sm-3 col-3 "><i class="bi bi-google "></i></button>
   </div>
   <div class="row mt-4">
-    <a @click="cambioForm" class="text-start col-6" href="#">¿Quieres registrarte?</a>
+    <button type="button" @click="cambioForm" class="btn btn-link text-start col-sm-6" >¿Quieres registrarte?</button>
   </div>
 </form>
   </div>
@@ -51,7 +51,8 @@ export default{
         return false
     });
 
-    const iniciar = async () =>{
+    const iniciar = async (e) =>{
+      e.preventDefault();
       await signInWithEmailAndPassword(auth,usuario.correo.value,usuario.contraseña.value).then(()=>{
       router.push("/home")
       })
