@@ -1,8 +1,8 @@
 <template>
   <div id="form-login" class="container">
     <div class="container fixed-top">
-      <div class="alert alert-danger" :hidden="alertState" id="alerta-error-inicio" role="alert">
-        Informacion incorrecta, vuelva a intentarlo
+      <div class="alert alert-danger " :hidden="alertState" id="alerta-error-inicio" role="alert">
+        <strong>Informacion incorrecta, vuelva a intentarlo </strong>
       </div>
     </div>
   <div class="col">
